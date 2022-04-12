@@ -29,7 +29,7 @@ def img():
     font_path = "seguiemj.ttf"
 
     body = request.args.to_dict(True)
-    if not isint(body[x]) or not isint(body[y]):
+    if not isint(body["x"]) or not isint(body["y"]):
         return "invalid size."
         
     x = int( body["x"] )
