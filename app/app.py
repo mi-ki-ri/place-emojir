@@ -15,17 +15,37 @@ app = Flask(__name__)
 #     # 単純に文字列を表示するだけ
 #     return 'hello world.'
 
+# 文字列が数値を表し、int／float関数による変換が可能かどうかを判定
+def isint(s):  # 整数値を表しているかどうかを判定
+    try:
+        int(s, 10)  # 文字列を実際にint関数で変換してみる
+    except ValueError:
+        return False
+    else:
+        return True
 
 @app.route('/', methods=['get'])
 def img():
     font_path = "seguiemj.ttf"
 
     body = request.args.to_dict(True)
+    if not isint(body[x]) or not isint(body[y]):
+        return "invalid size."
+        
     x = int( body["x"] )
     y = int( body["y"] )
+
+    if x > 3200 or y > 3200:
+        return "too large size."
+
     w = body["w"]
 
     e = emoji.emojize(f":{w}:")
+
+    if len(e) > 1:
+        return "cannot emojify."
+
+    
 
     # Pillowに変換 
     img = Image.new('RGB', (x, y))
