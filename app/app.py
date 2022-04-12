@@ -60,6 +60,8 @@ def img():
 
     # Pillowに変換 
     img = Image.new('RGB', (x, y))
+    d = ImageDraw.Draw(img)
+    d.rectangle([(0, 0), (x, y)], fill='grey')
     draw = ImageDraw.Draw(img)
     fs = min(   int(x / 2) , int(y/2)    )
     font = ImageFont.truetype(font=font_path, size=fs    )
