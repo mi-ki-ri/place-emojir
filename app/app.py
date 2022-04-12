@@ -29,6 +29,15 @@ def img():
     font_path = "seguiemj.ttf"
 
     body = request.args.to_dict(True)
+
+    if len(body.keys) == 0:
+        return """w: word for emoji.
+            https://carpedm20.github.io/emoji/
+        x: image width.
+        y: image height.
+        
+        """
+
     if not isint(body["x"]) or not isint(body["y"]):
         return "invalid size."
         
