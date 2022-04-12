@@ -30,7 +30,7 @@ def img():
 
     body = request.args.to_dict(True)
 
-    if len(body.keys) != 3:
+    if len(body.keys()) != 3:
         return """w: word for emoji(without colon).
             https://carpedm20.github.io/emoji/
         x: image width.
