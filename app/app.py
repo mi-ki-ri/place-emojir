@@ -61,8 +61,9 @@ def img():
     # Pillowに変換 
     img = Image.new('RGB', (x, y))
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype(font=font_path, size=min(   int(x / 2) , int(y/2)    )    )
-    draw.text((x / 2 - ( x/4 ), y / 2 - (y/4) ), e ,(255,255,255),font=font)
+    fs = min(   int(x / 2) , int(y/2)    )
+    font = ImageFont.truetype(font=font_path, size=fs    )
+    draw.text((x / 2 - ( fs /2 ), y / 2 - (fs /2 ) ), e ,(255,255,255),font=font)
 
     # 画像処理。ret_imgはPillowイメージ
     # ret_img = somet
